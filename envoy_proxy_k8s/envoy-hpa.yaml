@@ -1,0 +1,20 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: envoy-custom-hpa
+  namespace: envoy
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: envoy
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Pods
+    pods:
+      metric: 
+        name: envoy_cluster_upstream_per_second
+      target:
+        type: AverageValue
+        averageValue: 300m

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: envoy
+  namespace: envoy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: envoy
+  template:
+    metadata:
+      annotations:
+        prometheus.io/path: "/stats/prometheus"
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9901"
+      labels:
+        app: envoy
+    spec:
+      containers:
+      - name: envoy
+        image: envoyproxy/envoy:v1.18.3
+        ports:
+        - name: https
+          containerPort: 8443
+        - name: stats
+          containerPort: 9901
+        volumeMounts:
+        - name: config
+          mountPath: /etc/envoy
+      volumes:
+      - name: config
+        configMap:
+          name: envoy-conf

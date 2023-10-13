@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-server
+  namespace: grpc-server
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: grpc-server
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        prometheus.io/path: "/metrics"
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+      labels:
+        app: grpc-server
+    spec:
+      containers:
+        - name: grpc-server
+          image: jolly3/grpc-server:latest
+          ports:
+            - containerPort: 50051
+          env:
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+      imagePullSecrets:
+        - name: regcred

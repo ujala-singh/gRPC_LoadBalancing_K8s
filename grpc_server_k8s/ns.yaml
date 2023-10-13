@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: grpc-server
+  name: grpc-server
+spec:
+  finalizers:
+  - kubernetes

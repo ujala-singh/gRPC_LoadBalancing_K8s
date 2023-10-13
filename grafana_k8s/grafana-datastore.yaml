@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasource-config
+  namespace: grafana
+data:
+  prometheus.yaml: |
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      access: proxy
+      orgId: 1
+      url: http://prometheus-service.prometheus.svc.cluster.local:80  # Update with the correct Prometheus service URL
+      isDefault: true

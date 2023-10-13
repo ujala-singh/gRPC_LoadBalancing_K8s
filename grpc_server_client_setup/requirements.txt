@@ -1,0 +1,5 @@
+grpcio==1.44.0
+grpcio-tools==1.44.0
+google==3.0.0
+google-api-core==1.31.1
+prometheus-client==0.17.1
