@@ -33,14 +33,16 @@ Load Balancing in gRPC
         </ul>
     </li>
     <li>
-      <a href="#troubleshooting-and-monitoring">Troubleshooting and Monitoring</a>
-      <ul>
-            <li><a href="#a-word-on-the-load-balancing-algorithms">A word on the load balancing algorithms</a></li>
+        <a href="#troubleshooting-and-monitoring">Troubleshooting and Monitoring</a>
+        <ul>
+            <li>
+                <a href="#a-word-on-the-load-balancing-algorithms">A word on the load balancing algorithms</a>
+            </li>
         </ul>
     </li>
   </ol>
 </details>
-========================================================================================
+=====================================================================================
 
 # Scope
 
@@ -80,6 +82,10 @@ There are a number of LB policies provided with envoy. The most notable ones are
 
 ## Workflow
 
+<div align="center">
+    <h3 align="center">Architectural Diagram</h3>
+    <img src="images/gRPC.png" alt="Logo" width="800" height="700">
+</div>
 
 # Local Dev Setup
 
