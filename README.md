@@ -42,7 +42,7 @@ Load Balancing in gRPC
     </li>
   </ol>
 </details>
-====================================================================================
+====================================================================================g
 
 # Scope
 
@@ -203,12 +203,12 @@ One way to do monitoring is to use Prometheus to scrape the stats from the proxy
 
 <div align="center">
     <h3 align="center">Envoy Global Stats</h3>
-    <img src="images/envoy-global.png" alt="Logo" width="1000" height="700">
+    <img src="images/envoy-global.png" alt="Logo" width="1400" height="700">
 </div>
 
 <div align="center">
     <h3 align="center">Envoy Service to Service Stats</h3>
-    <img src="images/envoy-service-to-service.png" alt="Logo" width="1000" height="700">
+    <img src="images/envoy-service-to-service.png" alt="Logo" width="1400" height="700">
 </div>
 
 ## A word on the load balancing algorithms
@@ -226,15 +226,15 @@ In our exploration of load balancing mechanisms within our Kubernetes environmen
 
 <div align="center">
     <h3 align="center">gRPC LoadBalancing Up</h3>
-    <img src="images/gRPC-load-balancing-up.png" alt="Logo" width="1000" height="700">
+    <img src="images/gRPC-load-balancing-up.png" alt="Logo" width="1400" height="700">
 </div>
 
 <div align="center">
     <h3 align="center">gRPC LoadBalancing Down</h3>
-    <img src="images/gRPC-load-balancing-down.png" alt="Logo" width="1000" height="700">
+    <img src="images/gRPC-load-balancing-down.png" alt="Logo" width="1400" height="700">
 </div>
 
 <div align="center">
     <h3 align="center">gRPC Without LoadBalancing</h3>
-    <img src="images/gRPC-without-loadbalancing.png" alt="Logo" width="1000" height="700">
+    <img src="images/gRPC-without-loadbalancing.png" alt="Logo" width="1400" height="700">
 </div>
