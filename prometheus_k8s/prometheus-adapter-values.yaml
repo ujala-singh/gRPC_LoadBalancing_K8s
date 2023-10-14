@@ -1,5 +1,5 @@
 prometheus:
-  url: http://prometheus-service.prometheus.svc.cluster.local
+  url: http://prometheus-service
   port: 80
   path: ""
 rules:
