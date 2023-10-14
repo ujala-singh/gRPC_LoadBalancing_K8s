@@ -201,7 +201,7 @@ Below is an example how you can construct your own gRPC server and client using 
 # Troubleshooting and Monitoring
 One way to do monitoring is to use Prometheus to scrape the stats from the proxy pods. Envoy has built-in support for this, the Prometheus stats are published on the admin port at the route /stats/prometheus.
 
-For troubleshooting purpose, I have also enabled logging in my gRPC server and client. Some sample logs are as given below:
+For troubleshooting purposes, I have also enabled logging into my gRPC server and client. Some sample logs are given below:
 ## Server Logs
 ```sh
 2023-10-14 15:09:45,053 - __main__ - INFO - Starting server. Listening on port 50051.
