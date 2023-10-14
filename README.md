@@ -22,6 +22,7 @@ Load Balancing in gRPC
         <ul>
             <li><a href="#overview">Overview</a></li>
             <li><a href="#why-envoy">Why Envoy?</a></li>
+            <li><a href="#why-headless-service">Why Headless Service?</a></li>
             <li><a href="#workflow">Workflow</a></li>
         </ul>
     </li>
@@ -62,7 +63,7 @@ The communication flow from a gRPC client through Linkerd Proxy, which acts as a
 
 - Linkerd Proxy (Service Mesh): Linkerd is used as a service mesh to facilitate advanced networking capabilities such as load balancing, service discovery, and security. When the client sends a request, Linkerd acts as an intermediary.
 
-- Envoy as a Load Balancer: Within the Linkerd service mesh, Envoy proxies are deployed to handle routing and load balancing. Envoy ensures that incoming requests are distributed to available gRPC server instances effectively, optimizing resource usage.
+- Envoy as a Load Balancer: Within the Linkerd service mesh, Envoy proxies are deployed to handle routing and load balancing. Envoy ensures that incoming requests are distributed to available gRPC server instances effectively, optimizing resource usage and by using a headless service.
 
 - gRPC Server: The gRPC server is the final destination for the client's request. It processes the request, executes business logic, and sends a response back to the client through the same flow, ensuring a seamless and efficient communication process.
 
@@ -79,6 +80,14 @@ I chose Envoy (A smarter load balancer) as a load balancer proxy for below menti
 - It supports various load balancing algorithms, among others “Least Request”.
 
 There are a number of LB policies provided with envoy. The most notable ones are ROUND_ROBIN (the default), and LEAST_REQUEST.
+
+## Why Headless Service?
+
+Each connection to the service is forwarded to one randomly selected backing pod. But what if the client needs to connect to all of those pods? What if the backing pods themselves need to each connect to all the other backing pods. Connecting through the service clearly isn’t the way to do this. What is?
+
+For a client to connect to all pods, it needs to figure out the the IP of each individual pod. One option is to have the client call the Kubernetes API server and get the list of pods and their IP addresses through an API call, but because you should always strive to keep your apps Kubernetes-agnostic, using the API server isn’t ideal
+
+Luckily, Kubernetes allows clients to discover pod IPs through DNS lookups. Usually, when you perform a DNS lookup for a service, the DNS server returns a single IP — the service’s cluster IP. But if you tell Kubernetes you don’t need a cluster IP for your service (you do this by setting the clusterIP field to None in the service specification ), the DNS server will return the pod IPs instead of the single service IP. Instead of returning a single DNS A record, the DNS server will return multiple A records for the service, each pointing to the IP of an individual pod backing the service at that moment. Clients can therefore do a simple DNS A record lookup and get the IPs of all the pods that are part of the service. The client can then use that information to connect to one, many, or all of them.
 
 ## Workflow
 
