@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-10-14T17:51:52.386Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="RAgnOJXX7U1MWfzxm1hJ" version="22.0.4" type="device">
+<mxfile host="app.diagrams.net" modified="2023-10-14T17:58:04.563Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="KVZqpAFkGHSM62vGAoG0" version="22.0.4" type="device">
   <diagram name="Page-1" id="N5Q_urzB3sijw5tgfWox">
     <mxGraphModel dx="1026" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -166,7 +166,7 @@
         <mxCell id="jXOrpQiIvjn3FiTN3Y6k-58" value="" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];verticalLabelPosition=bottom;align=center;verticalAlign=top;shape=mxgraph.kubernetes.icon;prIcon=svc" parent="1" vertex="1">
           <mxGeometry x="230" y="660" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="jXOrpQiIvjn3FiTN3Y6k-59" value="&lt;p style=&quot;-webkit-tap-highlight-color: transparent; box-sizing: border-box; margin: 0px; padding: 0px; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;\5 FAE8F6F96C59ED1&amp;quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); line-height: 1.2; font-size: 10pt;&quot;&gt;grpc-server-headless.grpc-server.svc.cluster.local:8443&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=4;" parent="1" vertex="1">
+        <mxCell id="jXOrpQiIvjn3FiTN3Y6k-59" value="&lt;p style=&quot;-webkit-tap-highlight-color: transparent; box-sizing: border-box; margin: 0px; padding: 0px; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;\5 FAE8F6F96C59ED1&amp;quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); line-height: 1.2; font-size: 10pt;&quot;&gt;grpc-server-headless.grpc-server.svc.cluster.local:50051&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=4;" parent="1" vertex="1">
           <mxGeometry x="158.29" y="620" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="jXOrpQiIvjn3FiTN3Y6k-60" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.005;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.995;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="jXOrpQiIvjn3FiTN3Y6k-58" target="jXOrpQiIvjn3FiTN3Y6k-54" edge="1">
@@ -323,13 +323,13 @@
         <mxCell id="jXOrpQiIvjn3FiTN3Y6k-106" value="/apis/custom.metrics.k8s.io/v1beta1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=4;rotation=-15;" parent="1" vertex="1">
           <mxGeometry x="710" y="838" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="9c-nIpfkcYRQxRq0NtHc-1" value="" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];verticalLabelPosition=bottom;align=center;verticalAlign=top;shape=mxgraph.kubernetes.icon;prIcon=pod" vertex="1" parent="1">
+        <mxCell id="9c-nIpfkcYRQxRq0NtHc-1" value="" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];verticalLabelPosition=bottom;align=center;verticalAlign=top;shape=mxgraph.kubernetes.icon;prIcon=pod" parent="1" vertex="1">
           <mxGeometry x="975" y="890" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="9c-nIpfkcYRQxRq0NtHc-2" value="Grafana" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=4;" vertex="1" parent="1">
+        <mxCell id="9c-nIpfkcYRQxRq0NtHc-2" value="Grafana" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=4;" parent="1" vertex="1">
           <mxGeometry x="975" y="970" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="9c-nIpfkcYRQxRq0NtHc-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="9c-nIpfkcYRQxRq0NtHc-1" target="jXOrpQiIvjn3FiTN3Y6k-83">
+        <mxCell id="9c-nIpfkcYRQxRq0NtHc-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="9c-nIpfkcYRQxRq0NtHc-1" target="jXOrpQiIvjn3FiTN3Y6k-83" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1001" y="866" as="sourcePoint" />
             <mxPoint x="1110" y="875" as="targetPoint" />
