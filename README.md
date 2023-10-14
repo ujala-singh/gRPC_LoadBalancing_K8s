@@ -201,6 +201,31 @@ Below is an example how you can construct your own gRPC server and client using 
 # Troubleshooting and Monitoring
 One way to do monitoring is to use Prometheus to scrape the stats from the proxy pods. Envoy has built-in support for this, the Prometheus stats are published on the admin port at the route /stats/prometheus.
 
+For troubleshooting purpose, I have also enabled logging in my gRPC server and client. Some sample logs are as given below:
+## Server Logs
+```sh
+2023-10-14 15:09:45,053 - __main__ - INFO - Starting server. Listening on port 50051.
+2023-10-14 15:10:29,687 - __main__ - INFO - Received a request from grpc-client-654d8cbf7f-ql96c: Ujala
+2023-10-14 15:10:34,697 - __main__ - INFO - Received a request from grpc-client-654d8cbf7f-ql96c: Ujala
+2023-10-14 15:10:54,758 - __main__ - INFO - Received a request from grpc-client-654d8cbf7f-ql96c: Ujala
+2023-10-14 15:11:04,784 - __main__ - INFO - Received a request from grpc-client-654d8cbf7f-ql96c: Ujala
+```
+## Client Logs
+```sh
+2023-10-14 15:10:24,672 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-fzllg
+2023-10-14 15:10:29,690 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-f7mpn
+2023-10-14 15:10:34,699 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-f7mpn
+2023-10-14 15:10:39,709 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-fzllg
+2023-10-14 15:10:44,734 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-fzllg
+2023-10-14 15:10:49,749 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-fzllg
+2023-10-14 15:10:54,759 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-f7mpn
+2023-10-14 15:10:59,775 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-fzllg
+2023-10-14 15:11:04,786 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-f7mpn
+2023-10-14 15:11:09,803 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-fzllg
+2023-10-14 15:11:14,822 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-f7mpn
+2023-10-14 15:11:19,849 - __main__ - INFO - Received: Hello, Ujala! This message is from grpc-server-bcf6dc8cb-fzllg
+```
+
 <div align="center">
     <h3 align="center">Envoy Global Stats</h3>
     <img src="images/envoy-global.png" alt="Logo" width="1400" height="700">
