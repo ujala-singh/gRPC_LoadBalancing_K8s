@@ -1,6 +1,49 @@
 Load Balancing in gRPC
 ======================
 
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+    <img src="images/hq720.jpg" alt="Logo" width="686" height="386">
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#scope">Scope</a>
+    </li>
+    <li>
+      <a href="#background">Background</a>
+    </li>
+    <li>
+        <a href="#architecture">Architecture</a>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#why-envoy">Why Envoy?</a></li>
+            <li><a href="#workflow">Workflow</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#local-dev-setup">Local Dev Setup</a>
+         <ul>
+            <li><a href="#prerequisite">Prerequisite</a></li>
+            <li><a href="#installation">Installation</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#troubleshooting-and-monitoring">Troubleshooting and Monitoring</a>
+        <ul>
+            <li>
+                <a href="#a-word-on-the-load-balancing-algorithms">A word on the load balancing algorithms</a>
+            </li>
+        </ul>
+    </li>
+  </ol>
+</details>
+=====================================================================================
+
 # Scope
 
 This repository addresses the challenges and complexities of implementing efficient gRPC load balancing within a Kubernetes cluster. The goal is to ensure optimal distribution of traffic across gRPC-based services to achieve high availability, scalability, and performance.
@@ -39,6 +82,10 @@ There are a number of LB policies provided with envoy. The most notable ones are
 
 ## Workflow
 
+<div align="center">
+    <h3 align="center">Architectural Diagram</h3>
+    <img src="images/gRPC.png" alt="Logo" width="800" height="700">
+</div>
 
 # Local Dev Setup
 
@@ -150,3 +197,44 @@ Below is an example how you can construct your own gRPC server and client using 
     ```sh
     kubectl port-forward <grafana-pod-name> 3000 -n grafana
     ```
+
+# Troubleshooting and Monitoring
+One way to do monitoring is to use Prometheus to scrape the stats from the proxy pods. Envoy has built-in support for this, the Prometheus stats are published on the admin port at the route /stats/prometheus.
+
+<div align="center">
+    <h3 align="center">Envoy Global Stats</h3>
+    <img src="images/envoy-global.png" alt="Logo" width="1000" height="700">
+</div>
+
+<div align="center">
+    <h3 align="center">Envoy Service to Service Stats</h3>
+    <img src="images/envoy-service-to-service.png" alt="Logo" width="1000" height="700">
+</div>
+
+## A word on the load balancing algorithms
+In our exploration of load balancing mechanisms within our Kubernetes environment, we delved into leveraging Envoy as a critical intermediary layer. Employing the ROUND_ROBIN strategy, we observed highly promising results as it efficiently distributed the load across the various pods of our server. This effectiveness is readily demonstrable through the metric graphs we've collected. However, it became evident that traditional Kubernetes connection-based load balancing didn't align with the specific requirements of gRPC. Given that gRPC operates atop the HTTP/2 protocol, which relies on multiplexing and stream-based communication, Kubernetes' standard load balancing was less than optimal. This strategic move was driven by the need for a more compatible and efficient solution to address the unique characteristics of gRPC communication, ensuring seamless and performant interactions within our Kubernetes cluster.
+
+<div align="center">
+    <h3 align="center">HPA Autoscale Up</h3>
+    <img src="images/HPA-autoscale-up.png" alt="Logo" width="1000" height="700">
+</div>
+
+<div align="center">
+    <h3 align="center">HPA Autoscale Down</h3>
+    <img src="images/HPA-autoscale-down.png" alt="Logo" width="1000" height="700">
+</div>
+
+<div align="center">
+    <h3 align="center">gRPC LoadBalancing Up</h3>
+    <img src="images/gRPC-load-balancing-up.png" alt="Logo" width="1000" height="700">
+</div>
+
+<div align="center">
+    <h3 align="center">gRPC LoadBalancing Down</h3>
+    <img src="images/gRPC-load-balancing-down.png" alt="Logo" width="1000" height="700">
+</div>
+
+<div align="center">
+    <h3 align="center">gRPC Without LoadBalancing</h3>
+    <img src="images/gRPC-without-loadbalancing.png" alt="Logo" width="1000" height="700">
+</div>
