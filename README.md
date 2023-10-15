@@ -256,26 +256,26 @@ For troubleshooting purposes, I have also enabled logging into my gRPC server an
 In our exploration of load balancing mechanisms within our Kubernetes environment, we delved into leveraging Envoy as a critical intermediary layer. Employing the ROUND_ROBIN strategy, we observed highly promising results as it efficiently distributed the load across the various pods of our server. This effectiveness is readily demonstrable through the metric graphs we've collected. However, it became evident that traditional Kubernetes connection-based load balancing didn't align with the specific requirements of gRPC. Given that gRPC operates atop the HTTP/2 protocol, which relies on multiplexing and stream-based communication, Kubernetes' standard load balancing was less than optimal. This strategic move was driven by the need for a more compatible and efficient solution to address the unique characteristics of gRPC communication, ensuring seamless and performant interactions within our Kubernetes cluster.
 
 <div align="center">
-    <h3 align="center">HPA Autoscale Up</h3>
+    <h3 align="center">HPA Auto Scale-Up</h3>
     <img src="images/HPA-autoscale-up.png" alt="Logo" width="1000" height="700">
 </div>
 
 <div align="center">
-    <h3 align="center">HPA Autoscale Down</h3>
-    <img src="images/HPA-autoscale-down.png" alt="Logo" width="1000" height="700">
-</div>
-
-<div align="center">
-    <h3 align="center">gRPC LoadBalancing Up</h3>
+    <h3 align="center">gRPC load balancing of servers while scaling up</h3>
     <img src="images/gRPC-load-balancing-up.png" alt="Logo" width="1400" height="700">
 </div>
 
 <div align="center">
-    <h3 align="center">gRPC LoadBalancing Down</h3>
+    <h3 align="center">HPA Auto Scale-Down</h3>
+    <img src="images/HPA-autoscale-down.png" alt="Logo" width="1000" height="700">
+</div>
+
+<div align="center">
+    <h3 align="center">gRPC load balancing of servers while scaling down</h3>
     <img src="images/gRPC-load-balancing-down.png" alt="Logo" width="1400" height="700">
 </div>
 
 <div align="center">
-    <h3 align="center">gRPC Without LoadBalancing</h3>
+    <h3 align="center">gRPC server's behavior without load balancing</h3>
     <img src="images/gRPC-without-loadbalancing.png" alt="Logo" width="1400" height="700">
 </div>
