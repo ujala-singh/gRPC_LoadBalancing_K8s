@@ -122,10 +122,17 @@ Below is an example how you can construct your own gRPC server and client using 
 - I have stored the source code files for gRPC server and client in the directory ```grpc_server_client_setup``` along with the docker files. In this step, we will build the Docker images.
     ```sh
    cd grpc_server_client_setup
-   docker build -t jolly3/grpc-server-image -f Dockerfile.server .
-   docker build -t jolly3/grpc-server-image -f Dockerfile.client .
+   docker build -t jolly3/grpc-server -f Dockerfile.server .
+   docker build -t jolly3/grpc-client -f Dockerfile.client .
    ```
-    You can checkout these images on dockerhub as well:
+
+- Once the images are built, we can push them to our dockerhub account and pull them while deploying resources in k8s. Before pushing the images, make sure you login to dockerhub account.
+    ```sh
+   docker image ls
+   docker push jolly3/grpc-server
+   docker push jolly3/grpc-client
+   ```
+   You can checkout these images on my dockerhub account as well:
     * [gRPC Server Image](https://hub.docker.com/r/jolly3/grpc-server/tags)
     * [gRPC Client Image](https://hub.docker.com/r/jolly3/grpc-client/tags)
 
