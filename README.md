@@ -146,7 +146,7 @@ Below is an example how you can construct your own gRPC server and client using 
    ```
    Make sure you add the linkerd CLI to your path with:
    ```sh
-   export PATH=$PATH:/Users/nehapatel/.linkerd2/bin
+   export PATH=$PATH:/Users/<user-name>/.linkerd2/bin
    ```
    ```sh
    linkerd check --pre   # validate that Linkerd can be installed
